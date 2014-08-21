@@ -26,12 +26,32 @@ angular.module('app.controllers', [])
         $scope.$root.title = 'AngularJS SPA | Sign In';
         // TODO: Authorize a user
 
+        $scope.ShMessage1 = false;
+        $scope.ShMessage2 = false;
+        $scope.ShMessage3 = false;
+
         $scope.login = function (userName, password) {
-            if (userName === "Admin" && password === "123"){
-                $location.path('/admin');
-            } else if (userName === "User" &&password === "0000") {
-                $location.path('/profile');
+
+            if (userName === "Admin" && password !== "123") {
+                $scope.ShMessage1 = true;
+                $scope.ShMessage2 = false;
+                $scope.ShMessage3 = false;
+            } else if ((userName !== "Admin" && password === "123") || (userName !== "User" && password == "0000")) {
+                $scope.ShMessage1 = false;
+                $scope.ShMessage2 = true;
+                $scope.ShMessage3 = false;
+            } else if ((userName === "User" && password !== "0000")) {
+                $scope.ShMessage1 = false;
+                $scope.ShMessage2 = false;
+                $scope.ShMessage3 = true;
+            } else {
+                 if (userName === "Admin" && password === "123") {
+                     $location.path('/admin');
+                 } else if (userName === "User" && password === "0000") {
+                     $location.path('/profile');
+                 }
             }
+
             return false;
         };
         $scope.$on('$viewContentLoaded', function () {
@@ -62,6 +82,7 @@ angular.module('app.controllers', [])
         // TODO: Forgot Password
         
         $scope.ShowMessage = false;
+
         $scope.RecoverPassword = function () {
             $scope.ShowMessage = true;
             return false;
@@ -72,8 +93,10 @@ angular.module('app.controllers', [])
      // Path: /admin
     .controller('AdminCtrl', ['$scope', '$location', '$window', '$rootScope',  function ($scope, $location, $window, $rootScope) {
         $scope.$root.title = 'AngularJS SPA | Admin';
+
+        // TODO: Admin
         
-        $scope.TodasLigas = [{ id_liga: 347, nombre: 'Española', fecha_inicio: '28 Sept 2014', num_equipos: 20, num_partidos:10 }];
+        $scope.TodasLigas = [{ id_liga: 347, nombre: 'Española', fecha_inicio: new Date(), num_equipos: 20, num_partidos:10 }];
 
         $scope.idLiga = "";
         $scope.NombreLiga = "";
@@ -163,8 +186,10 @@ angular.module('app.controllers', [])
     .controller('ConfigLeagueCtrl', ['$scope', '$location', '$window','$stateParams', function ($scope, $location, $window, $stateParams) {
         $scope.$root.title = 'AngularJS SPA | ConfigLeague';
 
+        // TODO: Configure a League
+
         $scope.Equipos = [{ id_equipo: 438, nombre: 'RealMadrid', num_jugadores: 28, director_tecnico: 'Milla' }, { id_equipo: 823, nombre: 'Barcelona', num_jugadores: 24, director_tecnico: 'Rueda' }];
-        $scope.Partidos = [{ id_partido: 12, equipo1: 'RealMadrid', equipo2: 'Barcelona', fecha: '20 Marzo 2015' }];
+        $scope.Partidos = [{ id_partido: 12, equipo1: 'RealMadrid', equipo2: 'Barcelona', fecha: new Date() }];
 
         $scope.idEquipo = "";
         $scope.NombreEquipo = "";
@@ -314,44 +339,85 @@ angular.module('app.controllers', [])
 
           // Path: /profile
     .controller('ProfileCtrl', ['$scope', '$location', '$window','$rootScope', function ($scope, $location, $window,$rootScope) {
-        $scope.$root.title = 'SportLiga | Mi perfil';
-        // TODO: Forgot password
+        $scope.$root.title = 'Angular JSP | Mi perfil';
+        // TODO: User Profile
 
-        console.log($rootScope.rootligs[0].nombre);
+      //  console.log($rootScope.rootligs[0].nombre);
 
-        $scope.ligas = [
-        {
-            nombre: 'Española', pais: 'España', inicio: new Date(),
-            fin: new Date(), cant_equipos: 20, id: 1
-        },
-        {
-            nombre: 'Italiana', pais: 'Italia', inicio: new Date(),
-            fin: new Date(), cant_equipos: 21, id: 2
-        },
-        {
-            nombre: 'Inglesa', pais: 'Ingaltera', inicio: new Date(),
-            fin: new Date(), cant_equipos: 15, id: 3
-        },
-        {
-            nombre: 'Francesa', pais: 'Francia', inicio: new Date(),
-            fin: new Date(), cant_equipos: 21, id: 4
-        },
-        {
-            nombre: 'China', pais: 'China', inicio: new Date(),
-            fin: new Date(), cant_equipos: 15, id: 5
-        }];
+        $scope.Ligas = [
+        { id_liga: 347, nombre: 'Española', fecha_inicio: new Date(), num_equipos: 20, num_partidos: 10},
+        { id_liga: 284, nombre: 'Italiana', fecha_inicio: new Date(), num_equipos: 32, num_partidos: 21},
+        { id_liga: 67, nombre: 'Francesa', fecha_inicio: new Date(), num_equipos: 23, num_partidos: 16},
+        { id_liga: 42, nombre: 'Inglesa', fecha_inicio: new Date(), num_equipos: 25, num_partidos: 15},
+        { id_liga: 333, nombre: 'Alemana', fecha_inicio: new Date(), num_equipos: 20, num_partidos: 9},
+        { id_liga: 88, nombre: 'Hondureña', fecha_inicio: new Date(), num_equipos: 22, num_partidos: 11},
+        { id_liga: 156, nombre: 'Mexicana', fecha_inicio: new Date(), num_equipos: 35, num_partidos: 20 },
+        { id_liga: 622, nombre: 'Estaounidense', fecha_inicio: new Date(), num_equipos: 27, num_partidos: 18},
+        { id_liga: 728, nombre: 'Koreana', fecha_inicio: new Date(), num_equipos: 22, num_partidos: 14 },
+        { id_liga: 101, nombre: 'Africana', fecha_inicio: new Date(), num_equipos: 17, num_partidos: 12}];
 
-        $scope.ordenarPor = function (orden) {
-            $scope.OrdenSeleccionado = orden;
+        $scope.myLigas = [];
+
+        $scope.SearchLeague = function() {
+            for (var i=0; i<$scope.Ligas.length; i++){
+                if ($scope.Ligas[i].nombre === $scope.Buscar) {
+                    $location.path = ('/login');
+                }
+            }
         };
 
-        $scope.addNewLeague = function () {
-            $scope.ligas.push({ nombre: $scope.NombreEquipo, IdLiga: $scope.IdLiga });
+
+        $scope.getLiga = function() {
+            for (var i = 0; i < $scope.Ligas.length; i++) {
+                if ($scope.Ligas[i].nombre === $scope.Buscar) {
+                    return $scope.Ligas[i];
+                }
+            }
+            return null;
         };
+
+        $scope.Register = function (idlig) {
+            for (var i = 0; i < $scope.Ligas.length; i++) {
+                if ($scope.Ligas[i].id_liga === idlig) {
+                    var l = $scope.Ligas[i];
+                    $scope.myLigas.push(l);
+                    $scope.Ligas.splice(i, 1);
+                }
+            }
+        };
+
+
 
     }])
 
+              // Path: /league/:id
+    .controller('LeagueCtrl', ['$scope', '$location', '$window', '$rootScope', function ($scope, $location, $window, $rootScope) {
+        $scope.$root.title = 'Angular JSP | Liga';
+        // TODO: League
 
+        //  console.log($rootScope.rootligs[0].nombre);
+
+        $scope.lospartidos = [{ idjuego: 123, equipo1: 'Barcelona', equipo2: 'Real Madrid', fecha: new Date(), predicted:0 },
+                              { idjuego: 34, equipo1: 'Juventus', equipo2: 'Milan', fecha: new Date(), predicted: 0 },
+                              { idjuego: 728, equipo1: 'Olimpia', equipo2: 'Real España', fecha: new Date(), predicted: 0 },
+                              { idjuego: 192, equipo1: 'Marathon', equipo2: 'Platense', fecha: new Date(), predicted: 0 },
+                              { idjuego: 436, equipo1: 'Corinthians', equipo2: 'Chivas', fecha: new Date(), predicted: 0 },
+                              { idjuego: 772, equipo1: 'Madrid FC', equipo2: 'Chelsea', fecha: new Date(), predicted: 0 }
+        ];
+
+        $scope.go = function(path) {
+            $location.path(path);
+        };
+    }])
+
+     // Path: /predict/idleague/:id
+    .controller('PredictLeagueCtrl', ['$scope', '$location', '$window', '$rootScope', function ($scope, $location, $window, $rootScope) {
+        $scope.$root.title = 'Angular JSP | Liga';
+        // TODO: Predict a Match
+
+        //  console.log($rootScope.rootligs[0].nombre);
+
+    }])
 
     // Path: /error/404
     .controller('Error404Ctrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {

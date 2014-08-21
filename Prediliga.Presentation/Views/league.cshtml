@@ -1,0 +1,60 @@
+﻿<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <h3>
+                Liga (NombreLiga)
+            </h3>
+        </div>
+        <div class="col-md-4 column">
+            <img alt="140x140" src="http://lorempixel.com/140/140/" class="img-circle" />
+        </div>
+        <div class="col-md-4 column">
+            <a class="btn btn-lg btn-primary btn-block" href="/profile">Back</a>      
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            IdPartido
+                        </th>
+                        <th>
+                            Equipo 1
+                        </th>
+                        <th>
+                            Vs.
+                        </th>
+                        <th>
+                            Equipo 2
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                        <th>
+                            Predict
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="partido in lospartidos">
+                        <td>{{partido.idjuego}}</td>
+                        <td>{{partido.equipo1}}</td>
+                        <td>vs.</td>
+                        <td>{{partido.equipo2}}</td>
+                        <td>{{partido.fecha}}</td>
+                        <td>
+                                <div ng-if="partido.predicted === 0">
+                                    <a href="" ng-click="go('/predict/idleague/{{partido.idjuego}}')"><i class="glyphicon glyphicon-eye-close"></i></a>
+                                </div>
+                                <div ng-if="partido.predicted === 1">
+                                    <a href=""><i class="glyphicon glyphicon-remove"></i></a>
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

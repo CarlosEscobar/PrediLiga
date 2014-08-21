@@ -486,7 +486,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="robots.txt" />
-    <Content Include="Views\profile.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -503,6 +502,8 @@
     <Content Include="Views\profile.cshtml" />
     <Content Include="Views\admin.cshtml" />
     <Content Include="Views\configleague.cshtml" />
+    <Content Include="Views\league.cshtml" />
+    <Content Include="Views\predictleague.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

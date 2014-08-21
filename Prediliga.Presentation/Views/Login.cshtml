@@ -33,6 +33,10 @@
                     <label for="exampleInputPassword1">Password</label><input ng-model="password" type="password" class="form-control" placeholder="Password" required />
                 </div>
             </form> <button class="btn btn-success btn-lg btn-block" type="submit" ng-disabled="!(userName && password)" ng-click="login(userName,password)">Sign In</button> <a class="btn btn-success btn-lg btn-block" href="/forgot-password">Forgot Password</a>
+        
+            <div class="alert alert-success" role="alert" ng-show="ShMessage1"> Error: La contraseña para Admin esta incorrecta.</div>
+            <div class="alert alert-success" role="alert" ng-show="ShMessage2"> Error: El nombre de usuario esta incorrecto.</div>
+            <div class="alert alert-success" role="alert" ng-show="ShMessage3"> Error: La contraseña para User esta incorrecta.</div>
         </div>
     </div>
 </div>
