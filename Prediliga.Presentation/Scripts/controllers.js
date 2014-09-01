@@ -397,27 +397,25 @@ angular.module('app.controllers', [])
 
         //  console.log($rootScope.rootligs[0].nombre);
 
-        $scope.lospartidos = [{ idjuego: 123, equipo1: 'Barcelona', equipo2: 'Real Madrid', fecha: new Date(), predicted:0 },
-                              { idjuego: 34, equipo1: 'Juventus', equipo2: 'Milan', fecha: new Date(), predicted: 0 },
-                              { idjuego: 728, equipo1: 'Olimpia', equipo2: 'Real España', fecha: new Date(), predicted: 0 },
-                              { idjuego: 192, equipo1: 'Marathon', equipo2: 'Platense', fecha: new Date(), predicted: 0 },
-                              { idjuego: 436, equipo1: 'Corinthians', equipo2: 'Chivas', fecha: new Date(), predicted: 0 },
-                              { idjuego: 772, equipo1: 'Madrid FC', equipo2: 'Chelsea', fecha: new Date(), predicted: 0 }
+        $scope.predict = false;
+
+        $scope.lospartidos = [{ idjuego: 123, equipo1: 'Barcelona', equipo2: 'Real Madrid', s1:0, s2:0, fecha: new Date(), predicted:0 },
+                              { idjuego: 34, equipo1: 'Juventus', equipo2: 'Milan', s1: 0, s2: 0, fecha: new Date(), predicted: 0 },
+                              { idjuego: 728, equipo1: 'Olimpia', equipo2: 'Real España', s1: 0, s2: 0, fecha: new Date(), predicted: 0 },
+                              { idjuego: 192, equipo1: 'Marathon', equipo2: 'Platense', s1: 0, s2: 0, fecha: new Date(), predicted: 0 },
+                              { idjuego: 436, equipo1: 'Corinthians', equipo2: 'Chivas', s1: 0, s2: 0, fecha: new Date(), predicted: 0 },
+                              { idjuego: 772, equipo1: 'Madrid FC', equipo2: 'Chelsea', s1: 0, s2: 0, fecha: new Date(), predicted: 0 }
         ];
 
         $scope.go = function(path) {
             $location.path(path);
         };
+
+        $scope.predi = function() {
+            $scope.predict = true;
+        };
     }])
 
-     // Path: /predict/idleague/:id
-    .controller('PredictLeagueCtrl', ['$scope', '$location', '$window', '$rootScope', function ($scope, $location, $window, $rootScope) {
-        $scope.$root.title = 'Angular JSP | Liga';
-        // TODO: Predict a Match
-
-        //  console.log($rootScope.rootligs[0].nombre);
-
-    }])
 
     // Path: /error/404
     .controller('Error404Ctrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {

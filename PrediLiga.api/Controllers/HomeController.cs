@@ -12,5 +12,10 @@ namespace PrediLiga.api.Controllers
         {
             return View();
         }
+
+        public ActionResult Prueba()
+        {
+            return View();
+        }
     }
 }

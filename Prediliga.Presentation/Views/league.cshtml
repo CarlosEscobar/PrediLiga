@@ -24,10 +24,16 @@
                             Equipo 1
                         </th>
                         <th>
+                            Score 1
+                        </th>
+                        <th>
                             Vs.
                         </th>
                         <th>
                             Equipo 2
+                        </th>
+                        <th>
+                            Score 2
                         </th>
                         <th>
                             Fecha
@@ -41,16 +47,18 @@
                     <tr ng-repeat="partido in lospartidos">
                         <td>{{partido.idjuego}}</td>
                         <td>{{partido.equipo1}}</td>
+                        <td>{{partido.s1}}</td>
                         <td>vs.</td>
                         <td>{{partido.equipo2}}</td>
+                        <td>{{partido.s2}}</td>
                         <td>{{partido.fecha}}</td>
                         <td>
-                                <div ng-if="partido.predicted === 0">
-                                    <a href="" ng-click="go('/predict/idleague/{{partido.idjuego}}')"><i class="glyphicon glyphicon-eye-close"></i></a>
-                                </div>
-                                <div ng-if="partido.predicted === 1">
-                                    <a href=""><i class="glyphicon glyphicon-remove"></i></a>
-                                </div>
+                            <div ng-if="partido.predicted === 0">
+                                <a href=""><i class="glyphicon glyphicon-eye-close" ng-click="predi()"></i></a>
+                            </div>
+                            <div ng-if="partido.predicted === 1">
+                                <a href=""><i class="glyphicon glyphicon-remove"></i></a>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

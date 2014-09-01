@@ -73,6 +73,6 @@ C:\Users\carlosa\Documents\GitHub\PrediLiga\Prediliga.Presentation\bin\System.We
 C:\Users\carlosa\Documents\GitHub\PrediLiga\Prediliga.Presentation\bin\System.Web.WebPages.xml
 C:\Users\carlosa\Documents\GitHub\PrediLiga\Prediliga.Presentation\bin\System.Web.WebPages.Deployment.xml
 C:\Users\carlosa\Documents\GitHub\PrediLiga\Prediliga.Presentation\bin\System.Web.WebPages.Razor.xml
+C:\Users\carlosa\Documents\GitHub\PrediLiga\Prediliga.Presentation\obj\Debug\Prediliga.Presentation.csprojResolveAssemblyReference.cache
 C:\Users\carlosa\Documents\GitHub\PrediLiga\Prediliga.Presentation\obj\Debug\App.Prediliga.Presentation.dll
 C:\Users\carlosa\Documents\GitHub\PrediLiga\Prediliga.Presentation\obj\Debug\App.Prediliga.Presentation.pdb
-C:\Users\carlosa\Documents\GitHub\PrediLiga\Prediliga.Presentation\obj\Debug\Prediliga.Presentation.csprojResolveAssemblyReference.cache

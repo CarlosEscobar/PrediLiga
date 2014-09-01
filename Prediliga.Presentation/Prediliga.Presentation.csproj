@@ -503,7 +503,6 @@
     <Content Include="Views\admin.cshtml" />
     <Content Include="Views\configleague.cshtml" />
     <Content Include="Views\league.cshtml" />
-    <Content Include="Views\predictleague.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
