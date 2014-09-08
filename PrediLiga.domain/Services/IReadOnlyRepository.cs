@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using PrediLiga.domain.Entities;
+using PrediLiga.Domain.Entities;
 
-namespace PrediLiga.domain.Services
+namespace PrediLiga.Domain.Services
 {
     public interface IReadOnlyRepository
     {

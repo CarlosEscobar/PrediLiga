@@ -1,6 +1,6 @@
-﻿﻿using System;
+﻿using System;
 
-namespace PrediLiga.data
+namespace PrediLiga.Data
 {
     public class ItemNotFoundException<T> : Exception
     {

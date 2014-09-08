@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PrediLiga.domain")]
+[assembly: AssemblyTitle("PrediLiga.Domain")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PrediLiga.domain")]
+[assembly: AssemblyProduct("PrediLiga.Domain")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e9e6f592-b791-4c3b-8b58-230965ec8a6b")]
+[assembly: Guid("ae0bc3ea-0003-4fb7-bb9a-5c6d151f91e3")]
 
 // Version information for an assembly consists of the following four values:
 //

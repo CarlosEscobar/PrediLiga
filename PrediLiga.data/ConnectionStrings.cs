@@ -1,4 +1,4 @@
-﻿using System.Configuration;
+using System.Configuration;
 
 namespace PrediLiga.Data
 {
@@ -15,9 +15,10 @@ namespace PrediLiga.Data
             var environment = (ConfigurationManager.AppSettings["Environment"] ?? "").ToLower();
             var connectionStringToUse = local;
 
+
             if (environment == "qa" || environment == "remote")
             {
-                connectionStringToUse = string.Empty;
+                connectionStringToUse = ConfigurationManager.ConnectionStrings["remote"].ToString();
             }
             else if (environment == "production")
             {

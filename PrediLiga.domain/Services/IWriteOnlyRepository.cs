@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using PrediLiga.domain.Entities;
+using System.Collections.Generic;
+using PrediLiga.Domain.Entities;
 
-namespace PrediLiga.domain.Services
+namespace PrediLiga.Domain.Services
 {
     public interface IWriteOnlyRepository
     {

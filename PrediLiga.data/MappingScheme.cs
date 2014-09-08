@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -6,8 +6,8 @@ using AcklenAvenue.Data;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Conventions.Helpers;
-using PrediLiga.domain;
-﻿using PrediLiga.domain.Entities;
+using PrediLiga.Domain;
+using PrediLiga.Domain.Entities;
 
 namespace PrediLiga.Data
 {

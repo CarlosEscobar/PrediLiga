@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using NHibernate;
-using PrediLiga.domain.Entities;
-using PrediLiga.domain.Services;
+using PrediLiga.Domain.Entities;
+using PrediLiga.Domain.Services;
 
 namespace PrediLiga.Data
 {

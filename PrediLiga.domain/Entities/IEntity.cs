@@ -1,4 +1,4 @@
-﻿namespace PrediLiga.domain.Entities
+﻿namespace PrediLiga.Domain.Entities
 {
     public interface IEntity
     {
@@ -6,5 +6,4 @@
 
         bool IsArchived { get; set; }
     }
-
 }

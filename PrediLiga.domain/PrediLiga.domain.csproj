@@ -7,9 +7,9 @@
     <ProjectGuid>{CF0A25F1-07EA-4739-987E-ED5D8476E6C1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PrediLiga.domain</RootNamespace>
-    <AssemblyName>PrediLiga.domain</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>PrediLiga.Domain</RootNamespace>
+    <AssemblyName>PrediLiga.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,6 +43,7 @@
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\League.cs" />
+    <Compile Include="Entities\Leagues.cs" />
     <Compile Include="Entities\Match.cs" />
     <Compile Include="Entities\PrediLiga.cs" />
     <Compile Include="Entities\Team.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Services\IReadOnlyRepository.cs" />
     <Compile Include="Services\IWriteOnlyRepository.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

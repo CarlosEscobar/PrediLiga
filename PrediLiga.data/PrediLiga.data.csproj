@@ -7,9 +7,9 @@
     <ProjectGuid>{C935F220-B0DD-4B73-A9CC-5AAEF28EC8FC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PrediLiga.data</RootNamespace>
-    <AssemblyName>PrediLiga.data</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>PrediLiga.Data</RootNamespace>
+    <AssemblyName>PrediLiga.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -55,9 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectionStrings.cs" />
     <Compile Include="ItemNotFoundException.cs" />
     <Compile Include="MappingScheme.cs" />
+    <Compile Include="ConnectionStrings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadOnlyRepository.cs" />
     <Compile Include="WriteOnlyRepository.cs" />
@@ -67,9 +67,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PrediLiga.domain\PrediLiga.domain.csproj">
-      <Project>{CF0A25F1-07EA-4739-987E-ED5D8476E6C1}</Project>
-      <Name>PrediLiga.domain</Name>
+    <ProjectReference Include="..\PrediLiga.Domain\PrediLiga.Domain.csproj">
+      <Project>{82DCDBA5-4E13-4FD4-AE3F-3F56074F43F3}</Project>
+      <Name>PrediLiga.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

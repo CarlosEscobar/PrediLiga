@@ -1,4 +1,5 @@
 ﻿using System;
+using PrediLiga.Domain.Entities;
 
 namespace PrediLiga.domain.Entities
 {

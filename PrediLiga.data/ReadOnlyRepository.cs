@@ -4,10 +4,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using NHibernate;
 using NHibernate.Linq;
-using PrediLiga.domain.Entities;
-using PrediLiga.domain.Services;
+using PrediLiga.Domain.Entities;
+using PrediLiga.Domain.Services;
 
-namespace PrediLiga.data
+namespace PrediLiga.Data
 {
     public class ReadOnlyRepository : IReadOnlyRepository
     {

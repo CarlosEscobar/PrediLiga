@@ -1,4 +1,6 @@
-﻿namespace PrediLiga.domain.Entities
+﻿using PrediLiga.Domain.Entities;
+
+namespace PrediLiga.domain.Entities
 {
     public class Team : IEntity
     {

@@ -54,6 +54,20 @@ angular.module('app.controllers', [])
 
             return false;
         };
+
+        /*
+        $scope.user = {
+
+        };
+
+        $scope.login = function () {
+            Login.login($scope.user, function (response) {
+
+            }, function (error) {
+
+            });
+        };
+        */
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
@@ -64,28 +78,48 @@ angular.module('app.controllers', [])
     }])
 
     // Path: /Register
-    .controller('RegisterCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('RegisterCtrl', ['$scope', '$location', '$window', 'Login', function ($scope, $location, $window, Login) {
         $scope.$root.title = 'AngularJS SPA | Register';
         // TODO: Register a New User
         $scope.login = function () {
             $location.path('/login');
             return false;
         };
+
+        $scope.user = {
+
+        };
+
+        $scope.register = function () {
+            Login.register($scope.user, function (response) {
+
+            }, function (error) {
+
+            });
+        };
+
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
     }])
 
     // Path: /forgot-password
-    .controller('ForgotPasswordCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('ForgotPasswordCtrl', ['$scope', '$location', '$window', 'Login', function ($scope, $location, $window,Login) {
         $scope.$root.title = 'AngularJS SPA | Recuperar Password';
         // TODO: Forgot Password
         
         $scope.ShowMessage = false;
 
-        $scope.RecoverPassword = function () {
-            $scope.ShowMessage = true;
-            return false;
+        $scope.user = {
+
+        };
+
+        $scope.forgotPassword = function () {
+            Login.forgotPassword($scope.user, function (response) {
+
+            }, function (error) {
+
+            });
         };
 
     }])

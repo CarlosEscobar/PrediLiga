@@ -1,5 +1,5 @@
-C:\Users\carlosa\Documents\GitHub\PrediLiga\PrediLiga.domain\bin\Debug\PrediLiga.domain.dll
-C:\Users\carlosa\Documents\GitHub\PrediLiga\PrediLiga.domain\bin\Debug\PrediLiga.domain.pdb
-C:\Users\carlosa\Documents\GitHub\PrediLiga\PrediLiga.domain\obj\Debug\PrediLiga.domain.dll
-C:\Users\carlosa\Documents\GitHub\PrediLiga\PrediLiga.domain\obj\Debug\PrediLiga.domain.pdb
+C:\Users\carlosa\Documents\GitHub\PrediLiga\PrediLiga.domain\bin\Debug\PrediLiga.Domain.dll
+C:\Users\carlosa\Documents\GitHub\PrediLiga\PrediLiga.domain\bin\Debug\PrediLiga.Domain.pdb
 C:\Users\carlosa\Documents\GitHub\PrediLiga\PrediLiga.domain\obj\Debug\PrediLiga.domain.csprojResolveAssemblyReference.cache
+C:\Users\carlosa\Documents\GitHub\PrediLiga\PrediLiga.domain\obj\Debug\PrediLiga.Domain.dll
+C:\Users\carlosa\Documents\GitHub\PrediLiga\PrediLiga.domain\obj\Debug\PrediLiga.Domain.pdb

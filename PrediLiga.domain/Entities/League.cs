@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using PrediLiga.Domain.Entities;
 
 namespace PrediLiga.domain.Entities
 {
