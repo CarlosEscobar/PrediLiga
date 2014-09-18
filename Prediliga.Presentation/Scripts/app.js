@@ -40,6 +40,13 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                 controller: 'ForgotPasswordCtrl'
             })
 
+            .state('ResetPassword', {
+                url: '/resetpassword',
+                layout: 'basic',
+                templateUrl: '/views/resetpassword',
+                controller: 'ResetPasswordCtrl'
+            })
+
             .state('Profile', {
                 url: '/profile',
                 layout: 'basic',

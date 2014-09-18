@@ -54,7 +54,7 @@ namespace PregiLiga.Api.Controllers
             String email = "<" + destination + ">";
             request.AddParameter("to", email);
             request.AddParameter("subject", "Restoring Password");
-            String text = "Hi " + email + ", this authentication email will guide you on how to reset your password. Test1";
+            String text = "Hi " + email + ", this authentication email will guide you on how to reset your password. \nClick on the following link to be guided: http://localhost:8080/resetpassword.";
             request.AddParameter("text", text);
             request.Method = Method.POST;
             return client.Execute(request);

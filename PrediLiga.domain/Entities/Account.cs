@@ -15,8 +15,6 @@ namespace PrediLiga.domain.Entities
 
         public virtual string Password { get; set; }
 
-        public virtual IEnumerable<League> Leagues { get; set; }
-
 
         public virtual bool CheckPassword(string password)
         {

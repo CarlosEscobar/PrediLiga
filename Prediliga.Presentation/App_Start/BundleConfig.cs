@@ -26,7 +26,19 @@ namespace App.Prediliga.Presentation
                 "~/scripts/services.js",
                 "~/scripts/directives.js",
                 "~/scripts/controllers.js",
-                "~/scripts/app.js"));
+                "~/scripts/app.js",
+                "~/scripts/Controllers/AboutController.js",
+                "~/scripts/Controllers/AdminController.js",
+                "~/scripts/Controllers/ConfigureLeagueController.js",
+                "~/scripts/Controllers/ErrorController.js",
+                "~/scripts/Controllers/ForgotPasswordController.js",
+                "~/scripts/Controllers/HomeController.js",
+                "~/scripts/Controllers/LeagueController.js",
+                "~/scripts/Controllers/LoginController.js",
+                "~/scripts/Controllers/ProfileController.js",
+                "~/scripts/Controllers/RegisterController.js",
+                "~/scripts/Controllers/ResetPasswordController.js",
+                "~/scripts/Services/AccountService.js"));
         }
     }
 }

@@ -138,6 +138,17 @@
     <Content Include="Scripts\controllers.spec.js">
       <DependentUpon>controllers.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\Controllers\AboutController.js" />
+    <Content Include="Scripts\Controllers\AdminController.js" />
+    <Content Include="Scripts\Controllers\ConfigureLeagueController.js" />
+    <Content Include="Scripts\Controllers\ErrorController.js" />
+    <Content Include="Scripts\Controllers\ForgotPasswordController.js" />
+    <Content Include="Scripts\Controllers\HomeController.js" />
+    <Content Include="Scripts\Controllers\LeagueController.js" />
+    <Content Include="Scripts\Controllers\LoginController.js" />
+    <Content Include="Scripts\Controllers\ProfileController.js" />
+    <Content Include="Scripts\Controllers\RegisterController.js" />
+    <Content Include="Scripts\Controllers\ResetPasswordController.js" />
     <Content Include="Scripts\directives.js" />
     <Content Include="Scripts\directives.spec.js">
       <DependentUpon>directives.js</DependentUpon>
@@ -150,6 +161,7 @@
     <Content Include="Scripts\services.spec.js">
       <DependentUpon>services.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\Services\AccountService.js" />
     <Content Include="Scripts\vendor\angular-csp.css" />
     <Content Include="Scripts\vendor\angular-ui-router.js" />
     <Content Include="Scripts\vendor\angular-ui-router.min.js" />
@@ -503,6 +515,7 @@
     <Content Include="Views\admin.cshtml" />
     <Content Include="Views\configleague.cshtml" />
     <Content Include="Views\league.cshtml" />
+    <Content Include="Views\resetpassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

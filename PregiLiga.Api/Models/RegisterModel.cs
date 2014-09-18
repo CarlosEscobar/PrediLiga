@@ -1,4 +1,6 @@
-﻿namespace PregiLiga.Api.Models
+﻿using NHibernate.SqlTypes;
+
+namespace PregiLiga.Api.Models
 {
     public class RegisterModel
     {
@@ -6,5 +8,6 @@
         public string LastName { get; set; }
         public string DisplayName { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

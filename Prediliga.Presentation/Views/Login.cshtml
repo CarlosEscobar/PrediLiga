@@ -32,7 +32,9 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label><input ng-model="user.Password" type="password" class="form-control" placeholder="Password" required />
                 </div>
-            </form> <button class="btn btn-success btn-lg btn-block" type="submit" ng-disabled="!(user.Email && user.Password)" ng-click="login(user.Email,user.Password)">Sign In</button> <a class="btn btn-success btn-lg btn-block" href="/forgot-password">Forgot Password</a>
+            </form> 
+            <button class="btn btn-success btn-lg btn-block" type="submit" ng-disabled="!(user.Email && user.Password)" ng-click="login(user.Email,user.Password)">Sign In</button> 
+            <a class="btn btn-success btn-lg btn-block" href="/forgot-password">Forgot Password</a>
         
             <div class="alert alert-success" role="alert" ng-show="ShMessage1"> Error: La contraseña para Admin esta incorrecta.</div>
             <div class="alert alert-success" role="alert" ng-show="ShMessage2"> Error: El nombre de usuario esta incorrecto.</div>

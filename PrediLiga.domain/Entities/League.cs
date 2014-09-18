@@ -14,8 +14,5 @@ namespace PrediLiga.domain.Entities
 
         public virtual DateTime Day { get; set; }
 
-        public virtual IEnumerable<Team> Teams { get; set; }
-
-        public virtual IEnumerable<Match> Matches { get; set; }
     }
 }

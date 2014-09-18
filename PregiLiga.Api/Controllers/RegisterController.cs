@@ -18,12 +18,13 @@ namespace PregiLiga.Api.Controllers
     public class RegisterController : ApiController
     {
         readonly IReadOnlyRepository _readOnlyRepository;
+        readonly IWriteOnlyRepository _writeOnlyRepository;
 
 
-        public RegisterController(IReadOnlyRepository readOnlyRepository)
+        public RegisterController(IReadOnlyRepository readOnlyRepository, IWriteOnlyRepository writeOnlyRepository)
         {
-
             _readOnlyRepository = readOnlyRepository;
+            _writeOnlyRepository = writeOnlyRepository;
         }
 
         [HttpPost]
@@ -31,6 +32,14 @@ namespace PregiLiga.Api.Controllers
         [POST("register")]
         public AuthModel RegisterModel([FromBody] RegisterModel model)
         {
+            Account ac = new Account();
+            ac.Name = model.DisplayName;
+            ac.Email = model.Email;
+            ac.Password = model.Password;
+
+            var newUser = ac;
+            var createdUser = _writeOnlyRepository.Create(newUser);
+
             var resp = SendSimpleMessage(model.Email, model.FirstName, model.LastName, model.DisplayName);
             var user = _readOnlyRepository.FirstOrDefault<Account>(x => x.Email == model.Email);
             var authModel = new AuthModel { Token = "SuperHash" };
@@ -53,7 +62,7 @@ namespace PregiLiga.Api.Controllers
             String email = "<" + destination + ">";
             request.AddParameter("to", email);
             request.AddParameter("subject", "Register Process");
-            String text = "Hi " + firstname + " " + lastname + ", congratulations on completing the Register process for Prediliga.  Your registered username is " + displayname;
+            String text = "Hello " + firstname + " " + lastname + ", congratulations on completing the Register process for Prediliga. \nYour registered username is " + displayname + ". \nTo finish the process, click the following link: http://localhost:8080/login .";
             request.AddParameter("text", text);
             request.Method = Method.POST;
             return client.Execute(request);
