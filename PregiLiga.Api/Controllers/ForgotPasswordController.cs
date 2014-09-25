@@ -33,7 +33,6 @@ namespace PregiLiga.Api.Controllers
         {
             var resp = SendSimpleMessage(model.Email);
             var user = _readOnlyRepository.FirstOrDefault<Account>(x => x.Email == model.Email);
-            if (user == null) throw new HttpException((int)HttpStatusCode.NotFound, "User doesn't exist.");
             var authModel = new AuthModel { Token = "SuperHash" };
             return authModel;
         }

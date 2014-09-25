@@ -8,10 +8,10 @@ namespace PrediLiga.domain.Entities
         public virtual long Id { get; set; }
         public virtual bool IsArchived { get; set; }
 
-        public virtual Team Team1 { get; set; }
+        public virtual string Team1 { get; set; }
 
-        public virtual Team Team2 { get; set; }
+        public virtual string Team2 { get; set; }
         
-        public virtual DateTime Day { get; set; }
+        public virtual string Day { get; set; }
     }
 }

@@ -18,8 +18,8 @@ angular.module('app.controllers')
 
             };
 
-            $scope.register = function() {
-                Login.register($scope.user, function(response) {
+            $scope.signup = function() {
+                Login.signup($scope.user, function(response) {
 
                 }, function(error) {
 

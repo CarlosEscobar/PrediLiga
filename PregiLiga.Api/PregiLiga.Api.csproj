@@ -241,12 +241,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountLeagueModel.cs" />
     <Compile Include="Models\AccountLoginModel.cs" />
     <Compile Include="Models\adminModel.cs" />
     <Compile Include="Models\AuthModel.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
+    <Compile Include="Models\LeagueMatchModel.cs" />
+    <Compile Include="Models\LeagueTeamModel.cs" />
+    <Compile Include="Models\loginModel.cs" />
+    <Compile Include="Models\MatchModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\resetModel.cs" />
+    <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

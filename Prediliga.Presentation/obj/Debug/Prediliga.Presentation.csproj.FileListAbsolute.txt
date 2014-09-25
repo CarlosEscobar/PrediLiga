@@ -112,6 +112,6 @@ C:\Users\carlosa\Desktop\PrediLiga-master\Prediliga.Presentation\bin\System.Web.
 C:\Users\carlosa\Desktop\PrediLiga-master\Prediliga.Presentation\bin\System.Web.WebPages.xml
 C:\Users\carlosa\Desktop\PrediLiga-master\Prediliga.Presentation\bin\System.Web.WebPages.Deployment.xml
 C:\Users\carlosa\Desktop\PrediLiga-master\Prediliga.Presentation\bin\System.Web.WebPages.Razor.xml
-C:\Users\carlosa\Desktop\PrediLiga-master\Prediliga.Presentation\obj\Debug\Prediliga.Presentation.csprojResolveAssemblyReference.cache
 C:\Users\carlosa\Desktop\PrediLiga-master\Prediliga.Presentation\obj\Debug\App.Prediliga.Presentation.dll
 C:\Users\carlosa\Desktop\PrediLiga-master\Prediliga.Presentation\obj\Debug\App.Prediliga.Presentation.pdb
+C:\Users\carlosa\Desktop\PrediLiga-master\Prediliga.Presentation\obj\Debug\Prediliga.Presentation.csprojResolveAssemblyReference.cache

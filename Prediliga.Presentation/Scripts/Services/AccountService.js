@@ -3,15 +3,6 @@ angular.module('app.services')
 
     .factory('Login', function ($http) {
         return {
-            login: function (loginModel, success, error) {
-                $http
-                    .post(
-                        'http://localhost:1367/login', loginModel)
-                    .success(function (response) {
-                        success(response);
-                    })
-                    .error(error);
-            },
             forgotPassword: function (forgotPasswordModel, success, error) {
                 $http
                     .post(
@@ -21,10 +12,10 @@ angular.module('app.services')
                     })
                     .error(error);
             },
-            register: function (registerModel, success, error) {
+            signup: function (registerModel, success, error) {
                 $http
                     .post(
-                        'http://localhost:1367/register', registerModel)
+                        'http://localhost:1367/signup', registerModel)
                     .success(function (response) {
                         success(response);
                     })
@@ -39,10 +30,10 @@ angular.module('app.services')
                     })
                     .error(error);
             },
-            admin: function (adminModel, success, error) {
+            loadUsers: function (success, error) {
                 $http
-                    .post(
-                        'http://localhost:1367/admin', adminModel)
+                    .get(
+                        'http://localhost:1367/loadUsers')
                     .success(function (response) {
                         success(response);
                     })

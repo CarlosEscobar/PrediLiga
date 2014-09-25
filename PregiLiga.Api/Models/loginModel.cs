@@ -5,11 +5,11 @@ using System.Web;
 
 namespace PregiLiga.Api.Models
 {
-    public class adminModel
+    public class loginModel
     {
-        public long Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
-        public string Day { get; set; }
-        public string Location { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

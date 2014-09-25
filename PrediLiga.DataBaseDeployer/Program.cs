@@ -20,8 +20,6 @@ namespace PrediLiga.DatabaseDeployer
             
             string connectionString = ConnectionStrings.Get();
 
-            
-
             MsSqlConfiguration databaseConfiguration =
                 MsSqlConfiguration.MsSql2008.ShowSql().ConnectionString(x => x.Is(connectionString));
 
@@ -47,7 +45,13 @@ namespace PrediLiga.DatabaseDeployer
             {
                 dd.Seed(new List<IDataSeeder>
                             {
-                                new AccountSeeder(session)
+                                new AccountSeeder(session),
+                                new LeagueSeeder(session),
+                                new AccountLeagueSeeder(session),
+                                new TeamSeeder(session),
+                                new MatchSeeder(session),
+                                new LeagueTeamSeeder(session),
+                                new LeagueMatchSeeder(session)
                             });
                 tx.Commit();
             }

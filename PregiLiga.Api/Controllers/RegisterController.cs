@@ -29,8 +29,8 @@ namespace PregiLiga.Api.Controllers
 
         [HttpPost]
         [AcceptVerbs("POST", "HEAD")]
-        [POST("register")]
-        public AuthModel RegisterModel([FromBody] RegisterModel model)
+        [POST("signup")]
+        public AuthModel signup([FromBody] RegisterModel model)
         {
             Account ac = new Account();
             ac.Name = model.DisplayName;
@@ -41,7 +41,6 @@ namespace PregiLiga.Api.Controllers
             var createdUser = _writeOnlyRepository.Create(newUser);
 
             var resp = SendSimpleMessage(model.Email, model.FirstName, model.LastName, model.DisplayName);
-            var user = _readOnlyRepository.FirstOrDefault<Account>(x => x.Email == model.Email);
             var authModel = new AuthModel { Token = "SuperHash" };
             return authModel;
         }

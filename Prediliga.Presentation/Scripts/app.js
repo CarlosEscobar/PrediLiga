@@ -48,7 +48,7 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
             })
 
             .state('Profile', {
-                url: '/profile',
+                url: '/profile/:id',
                 layout: 'basic',
                 templateUrl: '/views/profile',
                 controller: 'ProfileCtrl'

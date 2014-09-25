@@ -3,109 +3,100 @@ angular.module('app.controllers')
 
     // Path: /admin
     .controller('AdminCtrl', [
-        '$scope', '$location', '$window', '$rootScope', 'Login', function($scope, $location, $window, $rootScope, Login) {
+        '$scope', '$location', '$window', 'Admin', function($scope, $location, $window, Admin) {
             $scope.$root.title = 'AngularJS SPA | Admin';
 
             // TODO: Admin
 
-            $scope.TodasLigas = [{ id_liga: 347, nombre: 'Española', fecha_inicio: new Date(), num_equipos: 20, num_partidos: 10 }];
+            $scope.isEditing = false;
+            $scope.TodasLigas = [];
 
-            $scope.idLiga = "";
-            $scope.NombreLiga = "";
-            $scope.FechaInicio = "";
-            $scope.NumEquipos = "";
-            $scope.NumPartidos = "";
+            $scope.loadLeagues = function() {
+                Admin.loadLeagues(function(availableLeagues) {
+                    $scope.TodasLigas = availableLeagues;
+                }, function(error) {
+                    alert('error loading available leagues');
+                });
+            };
 
             $scope.league = "";
 
             $scope.admin = function () {
 
-                Login.admin($scope.league, function (response) {
+                Admin.admin($scope.league, function (response) {
+                    
+                }, function (error) {
+
+                });
+                var leag;
+                var leaguee = { Id: ($scope.TodasLigas[($scope.TodasLigas.length - 1)].Id + 1), Name: $scope.league.Name, Day: $scope.league.Day, Location: $scope.league.Location };
+                leag = leaguee;
+                $scope.TodasLigas.push(leag);
+            };
+
+            $scope.limpiar = function() {
+                $scope.league.Name = "";
+                $scope.league.Day = "";
+                $scope.league.Location = "";
+            };
+
+            $scope.Dliga = "";
+
+            $scope.deleteLeague = function (id) {
+
+                var liga = { Id: id };
+                $scope.Dliga = liga;
+
+                Admin.deleteLeague($scope.Dliga, function (response) {
 
                 }, function (error) {
 
                 });
 
-            };
-
-            /*
-
-            $scope.addNewLeague = function() {
-                var league = { id_liga: $scope.idLiga, nombre: $scope.NombreLiga, fecha_inicio: $scope.FechaInicio, num_equipos: $scope.NumEquipos, num_partidos: $scope.NumPartidos };
-                $scope.TodasLigas.push(league);
-                $scope.idLiga = "";
-                $scope.NombreLiga = "";
-                $scope.FechaInicio = "";
-                $scope.NumEquipos = "";
-                $scope.NumPartidos = "";
-            };
-            */
-
-            $scope.deleteLeague = function(nombre) {
                 for (var i = 0; i < $scope.TodasLigas.length; i++) {
-                    if ($scope.TodasLigas[i].nombre === nombre) {
+                    if ($scope.TodasLigas[i].Id === id) {
                         $scope.TodasLigas.splice(i, 1);
                     }
                 }
             };
 
-            $scope.isEditing = false;
+            $scope.newleague = "";
 
-            $scope.IdAnterior = "";
-            $scope.NombreAnterior = "";
-            $scope.FechaAnterior = "";
-            $scope.NumEquiposAnterior = "";
-            $scope.NumPartidosAnterior = "";
-
-            $scope.NuevoidLiga = "";
-            $scope.NuevoNombre = "";
-            $scope.NuevaFechaInicio = "";
-            $scope.NuevoNumEquipos = "";
-            $scope.NuevoNumPartidos = "";
-
-
-            $scope.editLeague = function(idleague, teamname, fechaini, numequi, numparti) {
+            $scope.editLeague = function(id, teamname, fechaini, location) {
                 $scope.isEditing = true;
-                $scope.IdAnterior = idleague;
-                $scope.NuevoidLiga = idleague;
-                $scope.NombreAnterior = teamname;
-                $scope.NuevoNombre = teamname;
-                $scope.FechaAnterior = fechaini;
-                $scope.NuevaFechaInicio = fechaini;
-                $scope.NumEquiposAnterior = numequi;
-                $scope.NuevoNumEquipos = numequi;
-                $scope.NumPartidosAnterior = numparti;
-                $scope.NuevoNumPartidos = numparti;
+                $scope.newleague.Id = id;
+                $scope.newleague.Name = teamname;
+                $scope.newleague.Day = fechaini;
+                $scope.newleague.Location = location;
             };
 
             $scope.cancelEdit = function() {
                 $scope.isEditing = false;
             };
 
-            $scope.FinishEditing = function() {
+            $scope.FinishEditing = function () {
+
+                Admin.FinishEditing($scope.newleague, function (response) {
+
+                }, function (error) {
+
+                });
+
                 for (var i = 0; i < $scope.TodasLigas.length; i++) {
-                    if ($scope.TodasLigas[i].nombre === $scope.NombreAnterior) {
-                        $scope.TodasLigas[i].id_liga = $scope.NuevoidLiga;
-                        $scope.TodasLigas[i].nombre = $scope.NuevoNombre;
-                        $scope.TodasLigas[i].fecha_inicio = $scope.NuevaFechaInicio;
-                        $scope.TodasLigas[i].num_equipos = $scope.NuevoNumEquipos;
-                        $scope.TodasLigas[i].num_partidos = $scope.NuevoNumPartidos;
+                    if ($scope.TodasLigas[i].Id === $scope.newleague.Id) {
+                        $scope.TodasLigas[i].Name = $scope.newleague.Name;
+                        $scope.TodasLigas[i].Day = $scope.newleague.Day;
+                        $scope.TodasLigas[i].Location = $scope.newleague.Location;
                     }
                 }
-                $scope.isEditing = false;
-                $scope.IdAnterior = "";
-                $scope.NuevoidLiga = "";
-                $scope.NombreAnterior = "";
-                $scope.NuevoNombre = "";
-                $scope.FechaAnterior = "";
-                $scope.NuevaFechaInicio = "";
-                $scope.NumEquiposAnterior = "";
-                $scope.NuevoNumEquipos = "";
-                $scope.NumPartidosAnterior = "";
-                $scope.NuevoNumPartidos = "";
+                
             };
 
-            $rootScope.rootligs = $scope.TodasLigas;
+            $scope.FinishedEditing = function() {
+                $scope.newleague.Name = "";
+                $scope.newleague.Day = "";
+                $scope.newleague.Location = "";
+            };
 
         }
-    ]);
+]);

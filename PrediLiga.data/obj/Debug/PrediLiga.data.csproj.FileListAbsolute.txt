@@ -27,6 +27,6 @@ C:\Users\carlosa\Desktop\PrediLiga-master\PrediLiga.data\bin\Debug\PrediLiga.Dom
 C:\Users\carlosa\Desktop\PrediLiga-master\PrediLiga.data\bin\Debug\FluentNHibernate.xml
 C:\Users\carlosa\Desktop\PrediLiga-master\PrediLiga.data\bin\Debug\Iesi.Collections.xml
 C:\Users\carlosa\Desktop\PrediLiga-master\PrediLiga.data\bin\Debug\NHibernate.xml
-C:\Users\carlosa\Desktop\PrediLiga-master\PrediLiga.data\obj\Debug\PrediLiga.Data.csprojResolveAssemblyReference.cache
+C:\Users\carlosa\Desktop\PrediLiga-master\PrediLiga.data\obj\Debug\PrediLiga.data.csprojResolveAssemblyReference.cache
 C:\Users\carlosa\Desktop\PrediLiga-master\PrediLiga.data\obj\Debug\PrediLiga.Data.dll
 C:\Users\carlosa\Desktop\PrediLiga-master\PrediLiga.data\obj\Debug\PrediLiga.Data.pdb

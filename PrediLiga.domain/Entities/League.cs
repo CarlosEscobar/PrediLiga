@@ -12,7 +12,8 @@ namespace PrediLiga.domain.Entities
 
         public virtual string Name { get; set; }
 
-        public virtual DateTime Day { get; set; }
+        public virtual string Day { get; set; }
 
+        public virtual string Location { get; set; }
     }
 }

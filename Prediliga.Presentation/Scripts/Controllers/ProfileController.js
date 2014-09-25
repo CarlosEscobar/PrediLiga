@@ -3,30 +3,90 @@ angular.module('app.controllers')
 
     // Path: /profile
     .controller('ProfileCtrl', [
-        '$scope', '$location', '$window', '$rootScope', function($scope, $location, $window, $rootScope) {
+        '$scope', '$location', '$window', '$stateParams', 'Admin', function($scope, $location, $window, $stateParams, Admin) {
             $scope.$root.title = 'Angular JSP | Mi perfil';
             // TODO: User Profile
 
-            //  console.log($rootScope.rootligs[0].nombre);
-
-            $scope.Ligas = [
-                { id_liga: 347, nombre: 'Española', fecha_inicio: new Date(), num_equipos: 20, num_partidos: 10 },
-                { id_liga: 284, nombre: 'Italiana', fecha_inicio: new Date(), num_equipos: 32, num_partidos: 21 },
-                { id_liga: 67, nombre: 'Francesa', fecha_inicio: new Date(), num_equipos: 23, num_partidos: 16 },
-                { id_liga: 42, nombre: 'Inglesa', fecha_inicio: new Date(), num_equipos: 25, num_partidos: 15 },
-                { id_liga: 333, nombre: 'Alemana', fecha_inicio: new Date(), num_equipos: 20, num_partidos: 9 },
-                { id_liga: 88, nombre: 'Hondureña', fecha_inicio: new Date(), num_equipos: 22, num_partidos: 11 },
-                { id_liga: 156, nombre: 'Mexicana', fecha_inicio: new Date(), num_equipos: 35, num_partidos: 20 },
-                { id_liga: 622, nombre: 'Estaounidense', fecha_inicio: new Date(), num_equipos: 27, num_partidos: 18 },
-                { id_liga: 728, nombre: 'Koreana', fecha_inicio: new Date(), num_equipos: 22, num_partidos: 14 },
-                { id_liga: 101, nombre: 'Africana', fecha_inicio: new Date(), num_equipos: 17, num_partidos: 12 }
-            ];
-
+            $scope.Ligas = [];
             $scope.myLigas = [];
+            $scope.Users = [];
+            $scope.AccountLeagues = [];
+            $scope.user = "";
+            $scope.league = "";
+
+            $scope.loadLeaguesandUser = function () {
+
+                Admin.loadLeagues(function (availableLeagues) {
+                    $scope.Ligas = availableLeagues;
+                }, function (error) {
+                    alert('error loading available leagues');
+                });
+
+                Admin.loadallUsers(function(users) {
+                    $scope.Users = users;
+                }, function(error) {
+                    alert('error loading users');
+                });
+
+                Admin.loadAL(function(accountligs) {
+                    $scope.AccountLeagues = accountligs;
+                }, function(error) {
+                    alert('Error en la base de datos.');
+                });
+
+            };
+
+            $scope.loadProfile = function() {
+                for (var i = 0; i < $scope.Users.length; i++) {
+                    if ($scope.Users[i].Id.toString() === $stateParams.id) {
+                        $scope.userId = $stateParams.id;
+                        $scope.userName = $scope.Users[i].Name;
+                        $scope.userEmail = $scope.Users[i].Email;
+
+                        var theuser = { Id: $stateParams.id, Name: $scope.Users[i].Name, Email: $scope.Users[i].Email, Password: $scope.Users[i].Password };
+                        $scope.user = theuser;
+                    }
+                }
+
+                
+                for (var j = 0; j < $scope.AccountLeagues.length; j++) {
+                    if ($scope.AccountLeagues[j].idAccount.toString() === $stateParams.id) {
+                        var idl = $scope.AccountLeagues[j].idLeague;
+
+                        for (var k = 0; k < $scope.Ligas.length; k++) {
+                            if ($scope.Ligas[k].Id === idl) {
+                                $scope.league = $scope.Ligas[k];
+                            }
+                        }
+
+                        var p = $scope.league;
+                        $scope.myLigas.push(p);
+                    }
+                }
+
+                var left = [];
+
+                for (var x = 0; x < $scope.Ligas.length; x++) {
+                    var y = 0;
+
+                    for (var z = 0; z < $scope.myLigas.length; z++) {
+                        if ($scope.myLigas[z].Name === $scope.Ligas[x].Name) {
+                            y++;
+                        }
+                    }
+
+                    if (y == 0) {
+                        left.push($scope.Ligas[x]);
+                    }
+                }
+
+                $scope.Ligas = left;
+
+            };
 
             $scope.SearchLeague = function() {
                 for (var i = 0; i < $scope.Ligas.length; i++) {
-                    if ($scope.Ligas[i].nombre === $scope.Buscar) {
+                    if ($scope.Ligas[i].Name === $scope.Buscar) {
                         $location.path = ('/login');
                     }
                 }
@@ -35,7 +95,7 @@ angular.module('app.controllers')
 
             $scope.getLiga = function() {
                 for (var i = 0; i < $scope.Ligas.length; i++) {
-                    if ($scope.Ligas[i].nombre === $scope.Buscar) {
+                    if ($scope.Ligas[i].Name === $scope.Buscar) {
                         return $scope.Ligas[i];
                     }
                 }
@@ -44,12 +104,22 @@ angular.module('app.controllers')
 
             $scope.Register = function(idlig) {
                 for (var i = 0; i < $scope.Ligas.length; i++) {
-                    if ($scope.Ligas[i].id_liga === idlig) {
+                    if ($scope.Ligas[i].Id === idlig) {
                         var l = $scope.Ligas[i];
+                        $scope.league = $scope.Ligas[i];
                         $scope.myLigas.push(l);
                         $scope.Ligas.splice(i, 1);
                     }
                 }
+
+                var accleag = { idAccount: $scope.user.Id, idLeague: $scope.league.Id };
+                $scope.acl = accleag;
+
+                Admin.Register($scope.acl, function (response) {
+
+                }, function (error) {
+
+                });
             };
 
 

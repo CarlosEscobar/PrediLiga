@@ -22,6 +22,7 @@ namespace App.Prediliga.Presentation
                 "~/scripts/vendor/jquery-2.0.3.js",
                 "~/scripts/vendor/angular.js",
                 "~/scripts/vendor/angular-ui-router.js",
+                "~/scripts/vendor/angular-cookies.js",
                 "~/scripts/filters.js",
                 "~/scripts/services.js",
                 "~/scripts/directives.js",
@@ -38,7 +39,8 @@ namespace App.Prediliga.Presentation
                 "~/scripts/Controllers/ProfileController.js",
                 "~/scripts/Controllers/RegisterController.js",
                 "~/scripts/Controllers/ResetPasswordController.js",
-                "~/scripts/Services/AccountService.js"));
+                "~/scripts/Services/AccountService.js",
+                "~/scripts/Services/AdminService.js"));
         }
     }
 }
